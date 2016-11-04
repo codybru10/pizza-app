@@ -40,6 +40,8 @@ $(document).ready(function(){
     event.preventDefault();
 debugger;
     $("#cost").empty();
+    $("#sizeConfirm").empty();
+    $("#toppings").empty();
     var pizzaSize = $("#size").val();
 
     var pep = $("input#pep:checkbox[name=topping]:checked").val();
@@ -49,8 +51,8 @@ debugger;
 
     var result = new BuildPizza(pizzaSize,pep,bac,mush,ham);
 
-    $("h5#sizeConfirm").append(result.size);
-    $("h5#toppings").append(result.toppings);
+    $("h5#sizeConfirm").append("Size: " + result.size);
+    $("h5#toppings").append("Toppings: " + result.toppings);
     $("#cost").append("$ " + result.calculateCost());
     $(".well").show();
 

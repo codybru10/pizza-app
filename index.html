@@ -2,6 +2,7 @@
 <html>
   <head>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
@@ -13,42 +14,46 @@
       <h1>My Pizza Shop</h1>
       <div class="form-group">
         <form>
-          <label for="size">Choose your size:</label>
-          <select id="size" class="form-control">
-            <option value="0">Select a Size</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-          </select>
-          <label for="toppings">Choose your toppings:</label>
-          <div class="checkbox">
-            <label>
-              <input id="pep" type="checkbox" name="topping" value="pepperoni">Pepperoni
-            </label>
+          <div class="well">
+            <label for="size">Choose your size:</label>
+            <select id="size" class="form-control">
+              <option value="0">Select a Size</option>
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
           </div>
-          <div class="checkbox">
-            <label>
-              <input id="bac" type="checkbox" name="topping" value="bacon">Bacon
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input id="mush" type="checkbox" name="topping" value="mushrooms">Mushrooms
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input id="ham" type="checkbox" name="topping" value="ham">Ham
-            </label>
+          <div class="well">
+            <label for="toppings">Choose your toppings:</label>
+            <div class="checkbox">
+              <label>
+                <input id="pep" type="checkbox" name="topping" value="pepperoni">Pepperoni
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input id="bac" type="checkbox" name="topping" value="bacon">Bacon
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input id="mush" type="checkbox" name="topping" value="mushrooms">Mushrooms
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input id="ham" type="checkbox" name="topping" value="ham">Ham
+              </label>
+            </div>
           </div>
           <button type="submit">Buy Pizza</button>
         </form>
       </div>
 
-      <div class="well">
+      <div class="well" id="reciept">
         <h2>Receipt</h2>
-        <h5 id="sizeConfirm">Size: </h5>
-        <h5 id="toppings">Toppings: </h5>
+        <h5 id="sizeConfirm"></h5>
+        <h5 id="toppings"></h5>
         <h4 id="cost"></h4>
       </div>
 

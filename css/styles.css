@@ -1,3 +1,24 @@
-.well {
+#reciept {
   display: none;
+  background: #c5d9f9;
 }
+
+body {
+  background: url("../img/background.jpeg");
+  background-size: cover;
+}
+ html {
+   height: 100%;
+ }
+
+ h1 {
+   color: black;
+   text-align: center;
+   font-family: 'Shrikhand', cursive;
+   background: white;
+ }
+
+ .well {
+   margin-top: 50px;
+   margin-bottom: 50px;
+ }
