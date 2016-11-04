@@ -19,15 +19,23 @@ var price = 8
 
   if (this.toppings[0] === "pepperoni") {
     price += 1;
+  } else if (this.toppings[0] === undefined) {
+    this.toppings[0] = "";
   }
   if (this.toppings[1] === "bacon") {
     price +=1;
+  } else if (this.toppings[1] === undefined) {
+    this.toppings[1] = "";
   }
   if (this.toppings[2] === "mushroom") {
     price +=1;
+  } else if (this.toppings[2] === undefined) {
+    this.toppings[2] = "";
   }
   if (this.toppings[3] === "ham") {
     price +=1;
+  } else if (this.toppings[3] === undefined) {
+    this.toppings[3] = "";
   }
   return price;
 };
@@ -51,9 +59,9 @@ debugger;
 
     var result = new BuildPizza(pizzaSize,pep,bac,mush,ham);
 
-    $("h5#sizeConfirm").append("Size: " + result.size);
-    $("h5#toppings").append("Toppings: " + result.toppings);
     $("#cost").append("$ " + result.calculateCost());
+    $("h5#sizeConfirm").append("Size: " + result.size);
+    $("h5#toppings").append("Toppings: " + result.toppings[0] + " " + result.toppings[1] + " " + result.toppings[2] + " " + result.toppings[3]);
     $(".well").show();
 
   });
