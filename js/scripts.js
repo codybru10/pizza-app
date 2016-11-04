@@ -1,13 +1,14 @@
 //business logic
-function BuildPizza(size,pep,bac,mush,ham) {
+function BuildPizza(size,toppings) {
 debugger;
   this.size = size;
-  this.toppings = [pep,bac,mush,ham];
+  this.toppings = [toppings];
 };
 
 BuildPizza.prototype.calculateCost = function() {
 debugger;
-var price = 8
+var price = 8;
+
 
   if (this.size === "small") {
     price += 0;
@@ -17,26 +18,16 @@ var price = 8
     price += 5;
   }
 
-  if (this.toppings[0] === "pepperoni") {
-    price += 1;
-  } else if (this.toppings[0] === undefined) {
-    this.toppings[0] = "";
+
+  for (var index = 0; index < this["toppings"].length; index++) {
+    if (this["toppings"][index] === 1) {
+      price += 1
+    } else {
+      price += 0
+    }
   }
-  if (this.toppings[1] === "bacon") {
-    price +=1;
-  } else if (this.toppings[1] === undefined) {
-    this.toppings[1] = "";
-  }
-  if (this.toppings[2] === "mushroom") {
-    price +=1;
-  } else if (this.toppings[2] === undefined) {
-    this.toppings[2] = "";
-  }
-  if (this.toppings[3] === "ham") {
-    price +=1;
-  } else if (this.toppings[3] === undefined) {
-    this.toppings[3] = "";
-  }
+
+
   return price;
 };
 
@@ -46,18 +37,20 @@ var price = 8
 $(document).ready(function(){
   $("form").submit(function(event){
     event.preventDefault();
-debugger;
     $("#cost").empty();
     $("#sizeConfirm").empty();
     $("#toppings").empty();
     var pizzaSize = $("#size").val();
+debugger;
+    var toppings = [];
+    $("input:checkbox[name=topping]:checked").each(function(){
+      var toppingsChecked = parseInt($(this).val());
+      toppings.push(toppingsChecked);
+    });
 
-    var pep = $("input#pep:checkbox[name=topping]:checked").val();
-    var bac = $("input#bac:checkbox[name=topping]:checked").val();
-    var mush = $("input#mush:checkbox[name=topping]:checked").val();
-    var ham = $("input#ham:checkbox[name=topping]:checked").val();
 
-    var result = new BuildPizza(pizzaSize,pep,bac,mush,ham);
+    var result = new BuildPizza(pizzaSize,toppings);
+
 
     $("#cost").append("$ " + result.calculateCost());
     $("h5#sizeConfirm").append("Size: " + result.size);
