@@ -1,31 +1,28 @@
 //business logic
-function BuildPizza(size,toppings) {
-debugger;
-  this.size = size;
-  this.toppings = [toppings];
+function BuildPizza(sizeO,toppings) {
+  this.sizeOf = sizeO;
+  this.toppings = toppings;
 };
 
 BuildPizza.prototype.calculateCost = function() {
 debugger;
 var price = 8;
 
-
-  if (this.size === "small") {
+  if (this.sizeOf === "small") {
     price += 0;
-  } else if (this.size === "medium") {
+  } else if (this.sizeOf === "medium") {
     price += 3;
-  } else if ( this.size === "large") {
+  } else if ( this.sizeOf === "large") {
     price += 5;
   }
 
 
-  for (var index = 0; index < this["toppings"].length; index++) {
-    if (this["toppings"][index] === 1) {
-      price += 1
-    } else {
-      price += 0
+
+  for (var i = 0; i < this.toppings.length; i++) {
+    if (this.toppings[i] === 1) {
+      price += 1;
     }
-  }
+  };
 
 
   return price;
@@ -41,7 +38,6 @@ $(document).ready(function(){
     $("#sizeConfirm").empty();
     $("#toppings").empty();
     var pizzaSize = $("#size").val();
-debugger;
     var toppings = [];
     $("input:checkbox[name=topping]:checked").each(function(){
       var toppingsChecked = parseInt($(this).val());
@@ -49,12 +45,12 @@ debugger;
     });
 
 
-    var result = new BuildPizza(pizzaSize,toppings);
+    var yourPizza = new BuildPizza(pizzaSize,toppings);
 
 
-    $("#cost").append("$ " + result.calculateCost());
-    $("h5#sizeConfirm").append("Size: " + result.size);
-    $("h5#toppings").append("Toppings: " + result.toppings[0] + " " + result.toppings[1] + " " + result.toppings[2] + " " + result.toppings[3]);
+    $("#cost").append("$ " + yourPizza.calculateCost());
+    $("h5#sizeConfirm").append("Size: " + yourPizza.size);
+    $("h5#toppings").append("Toppings: " + yourPizza.toppings);
     $(".well").show();
 
   });
