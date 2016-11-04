@@ -1,6 +1,6 @@
 //business logic
-function BuildPizza(sizeO,toppings) {
-  this.sizeOf = sizeO;
+function BuildPizza(size,toppings) {
+  this.sizeOf = size;
   this.toppings = toppings;
 };
 
@@ -16,14 +16,11 @@ var price = 8;
     price += 5;
   }
 
-
-
   for (var i = 0; i < this.toppings.length; i++) {
-    if (this.toppings[i] === 1) {
+    if (this.toppings[i] === "pepperoni" || this.toppings[i] === "bacon" || this.toppings[i] === "mushrooms" || this.toppings[i] === "ham") {
       price += 1;
     }
   };
-
 
   return price;
 };
@@ -40,7 +37,7 @@ $(document).ready(function(){
     var pizzaSize = $("#size").val();
     var toppings = [];
     $("input:checkbox[name=topping]:checked").each(function(){
-      var toppingsChecked = parseInt($(this).val());
+      var toppingsChecked = $(this).val();
       toppings.push(toppingsChecked);
     });
 
@@ -49,7 +46,7 @@ $(document).ready(function(){
 
 
     $("#cost").append("$ " + yourPizza.calculateCost());
-    $("h5#sizeConfirm").append("Size: " + yourPizza.size);
+    $("h5#sizeConfirm").append("Size: " + yourPizza.sizeOf);
     $("h5#toppings").append("Toppings: " + yourPizza.toppings);
     $(".well").show();
 
