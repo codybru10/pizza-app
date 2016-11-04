@@ -12,13 +12,20 @@ body {
  }
 
  h1 {
-   color: black;
+   color: #e8ebef;
    text-align: center;
    font-family: 'Shrikhand', cursive;
-   background: white;
+   text-shadow: 6px 6px 10px black;
  }
 
  .well {
    margin-top: 50px;
    margin-bottom: 50px;
+   box-shadow: 0 0 8px 1px black;
  }
+
+button {
+  background-color: red;
+  box-shadow: 0 0 15px 1px white;
+  color: white;
+}
