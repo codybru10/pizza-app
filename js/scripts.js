@@ -9,11 +9,11 @@ BuildPizza.prototype.calculateCost = function() {
 debugger;
 var price = 8
 
-  if (this.size === 1) {
+  if (this.size === "small") {
     price += 0;
-  } else if (this.size === 2) {
+  } else if (this.size === "medium") {
     price += 3;
-  } else if ( this.size === 3) {
+  } else if ( this.size === "large") {
     price += 5;
   }
 
@@ -39,7 +39,8 @@ $(document).ready(function(){
   $("form").submit(function(event){
     event.preventDefault();
 debugger;
-    var pizzaSize = parseInt($("#size").val());
+    $("#cost").empty();
+    var pizzaSize = $("#size").val();
 
     var pep = $("input#pep:checkbox[name=topping]:checked").val();
     var bac = $("input#bac:checkbox[name=topping]:checked").val();
@@ -48,7 +49,10 @@ debugger;
 
     var result = new BuildPizza(pizzaSize,pep,bac,mush,ham);
 
-    $("#cost").append(result.calculateCost());
+    $("h5#sizeConfirm").append(result.size);
+    $("h5#toppings").append(result.toppings);
+    $("#cost").append("$ " + result.calculateCost());
+    $(".well").show();
 
   });
 });

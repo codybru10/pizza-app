@@ -15,10 +15,10 @@
         <form>
           <label for="size">Choose your size:</label>
           <select id="size" class="form-control">
-            <option value="0"></option>
-            <option value="1">Small</option>
-            <option value="2">Medium</option>
-            <option value="3">Large</option>
+            <option value="0">Select a Size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
           </select>
           <label for="toppings">Choose your toppings:</label>
           <div class="checkbox">
@@ -45,7 +45,12 @@
         </form>
       </div>
 
-      <h4 id="cost">$</h4>
+      <div class="well">
+        <h2>Receipt</h2>
+        <h5 id="sizeConfirm">Size: </h5>
+        <h5 id="toppings">Toppings: </h5>
+        <h4 id="cost"></h4>
+      </div>
 
 
     </div>
